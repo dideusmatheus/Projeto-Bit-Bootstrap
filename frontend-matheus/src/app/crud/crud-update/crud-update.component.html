@@ -1,0 +1,47 @@
+<form [formGroup]="userUpdateForm" class="form container">
+
+  <h5 class="text-star my-3">Editar Usuário</h5>
+
+  <!-- input user name -->
+  <div class="form-group my-2 md">
+    <label for="userName" class="form-label">Nome</label>
+    <input formControlName="userName" type="text" class="form-control w-50">
+    <app-crud-message *ngIf="userUpdateForm.get('userName')?.errors?.['required']" text="User name is Required!"></app-crud-message>
+    <app-crud-message *ngIf="userUpdateForm.get('userName')?.errors?.['minlength']" text="Minimum length is 3!"></app-crud-message>
+    <app-crud-message *ngIf="userUpdateForm.get('userName')?.errors?.['maxlength']" text="Maximum length is 30!"></app-crud-message>
+  </div>
+
+  <!-- input user nick -->
+  <div class="form-group my-2 md">
+    <label for="userNick" class="form-label">Nick</label>
+    <input formControlName="userNick" type="text" class="form-control w-50">
+    <app-crud-message *ngIf="userUpdateForm.get('userNick')?.errors?.['required']" text="Nick name is Required!"></app-crud-message>
+    <app-crud-message *ngIf="userUpdateForm.get('userNick')?.errors?.['minlength']" text="Minimum length is 3!"></app-crud-message>
+    <app-crud-message *ngIf="userUpdateForm.get('userNick')?.errors?.['maxlength']" text="Maximum length is 25!"></app-crud-message>
+  </div>
+
+  <!-- input user email -->
+  <div class="form-group my-2 md">
+    <label for="userEmail" class="form-label">E-mail</label>
+    <input formControlName="userEmail" type="email" class="form-control w-50">
+    <app-crud-message *ngIf="userUpdateForm.get('userEmail')?.errors?.['required']" text="Email is Required!"></app-crud-message>
+    <app-crud-message *ngIf="userUpdateForm.get('userEmail')?.errors?.['email']" text="Email is Required!"></app-crud-message>
+  </div>
+
+  <!-- input password -->
+  <div class="form-group my-2 md">
+    <label for="userPassword" class="form-label">Senha</label>
+    <input formControlName="userPassword" type="password" class="form-control w-50">
+    <app-crud-message *ngIf="userUpdateForm.get('userPassword')?.errors?.['required']" text="Password is Required!"></app-crud-message>
+    <app-crud-message *ngIf="userUpdateForm.get('userPassword')?.errors?.['minlength']" text="Minimum length is 6!"></app-crud-message>
+    <app-crud-message *ngIf="userUpdateForm.get('userPassword')?.errors?.['maxlength']" text="Maximum length is 20!"></app-crud-message>
+  </div>
+
+  <!-- buttons -->
+  <div>
+    <button type="submit" class="btn btn-outline-success mx-2" (click)="updateUser(user)">Salvar</button>
+    <button type="button" class="btn btn-outline-warning" (click)="cancel()">Cancelar</button>
+  </div>
+
+
+</form>

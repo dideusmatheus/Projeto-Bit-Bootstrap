@@ -1,0 +1,25 @@
+<!-- 1C- antes de fazer o template declare o logincomponent e depois faz o template do login, depois vá para home.component.html -->
+<h3 class="text-center font-monospace">Por favor, faça o login!</h3>
+
+<!-- 5C- para manipular as informações do template, vamos colocar [formGroup]="loginForm" -->
+<form [formGroup]="loginForm" class="form font-monospace" (submit)="login()">
+
+  <div class="form-group my-2"> <!-- 1C- input do nome para login -->
+    <!-- 5D- coloque o formControlName="userNick" (estou mapeando o input pra o atributo userNick) -->
+    <input  formControlName="userNick"  class="form-control" placeholder="Nick do usuário" type="text" autofocus>
+    <app-vmessage *ngIf="loginForm.get('userNick')?.errors?.['required'] && loginForm.get('userNick')?.['touched']" text="User Name is Required!"></app-vmessage>
+  </div>
+
+  <div class="form-group my-2"> <!-- 1C- input do password para login -->
+    <!--  5D- coloque o formControlName="userPassword" (estou mapeando o input pra o atributo userPassword) depois vamos para login.component.ts-->
+    <input formControlName="userPassword" class="form-control" placeholder="Senha do usuário" type="password">
+    <app-vmessage *ngIf="loginForm.get('userPassword')?.errors?.['required'] && loginForm.get('userPassword')?.['touched']" text="Password is Required!"></app-vmessage>
+  </div>
+
+  <div class="d-grid my-2"> <!-- 1C- button login -->
+    <button [disabled]="loginForm.invalid" class="btn btn-primary" type="submit">Login</button>
+  </div>
+
+  <p>Não é usuário? <a [routerLink]="['signup']">Cadastre-se.</a></p>
+
+</form>

@@ -1,0 +1,46 @@
+<form [formGroup]="userDeleteForm" class="form container">
+
+  <h5 class="text-star my-3">Deletar Usuário</h5>
+
+  <!-- input user name -->
+  <div class="form-group my-2 md">
+    <label for="userName" class="form-label">Nome completo</label>
+    <input formControlName="userName" type="text" class="form-control w-50" readonly>
+  </div>
+
+  <!-- input user nick -->
+  <div class="form-group my-2 md">
+    <label for="userNick" class="form-label">Nick</label>
+    <input formControlName="userName" type="text" class="form-control w-50" readonly>
+  </div>
+
+  <!-- input user email -->
+  <div class="form-group my-2 md">
+    <label for="userEmail" class="form-label">E-mail</label>
+    <input formControlName="userEmail" formControlName="userEmail" type="text" class="form-control w-50" readonly>
+  </div>
+
+  <!-- input password -->
+  <div class="form-group my-2 md">
+    <label for="userPassword" class="form-label">Senha</label>
+    <input formControlName="userPassword" type="password" class="form-control w-50" readonly>
+  </div>
+
+  <!-- buttons -->
+  <div>
+    <button type="button" class="btn btn-outline-danger me-2" (click)="openModal(template)">Excluir</button>
+    <!-- <button type="button" class="btn btn-outline-danger mx-2" (click)="deleteUser()">Excluir</button> -->
+    <button type="button" class="btn btn-outline-warning" (click)="cancel()">Cancelar</button>
+  </div>
+
+
+</form>
+
+
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>Do you want to confirm?</p>
+    <button type="submit" class="btn btn-default" (click)="deleteUser()">Yes</button>
+    <button type="button" class="btn btn-primary" (click)="cancel()">No</button>
+  </div>
+</ng-template>

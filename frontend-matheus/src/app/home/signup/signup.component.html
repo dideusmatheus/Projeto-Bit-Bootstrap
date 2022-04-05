@@ -1,0 +1,46 @@
+<!-- 2D- criando o template do signup -->
+<h3 class="text-center">Para fazer o login, é preciso se cadastrar!</h3>
+
+<form [formGroup]="signupForm" class="form" (submit)="signup()">
+
+  <!-- input user name -->
+  <div class="form-group mb-2">
+    <input formControlName="userName" class="form-control" placeholder="Nome do usuário" type="text">
+    <app-vmessage *ngIf="signupForm.get('userName')?.errors?.['required'] && signupForm.get('userName')?.['touched']" text="User Name is Required!"></app-vmessage> <!-- Validators.required -->
+    <app-vmessage *ngIf="signupForm.get('userName')?.errors?.['minlength']" text="Minimum length is 3!"></app-vmessage> <!-- Validators.minLength(3) -->
+    <app-vmessage *ngIf="signupForm.get('userName')?.errors?.['maxlength']" text="Maximum length is 30!"></app-vmessage> <!-- Validators.maxLength(30) -->
+  </div>
+
+   <!-- input user nick -->
+  <div class="form-group mb-2">
+    <input formControlName="userNick" class="form-control" placeholder="Nick do usuário" type="text">
+    <app-vmessage *ngIf="signupForm.get('userNick')?.errors?.['required'] && signupForm.get('userNick')?.['touched']" text="Nick Name is Required!"></app-vmessage> <!-- Validators.required -->
+    <app-vmessage *ngIf="signupForm.get('userNick')?.errors?.['minlength']" text="Minimum length is 3!"></app-vmessage> <!-- Validators.minLength(3) -->
+    <app-vmessage *ngIf="signupForm.get('userNick')?.errors?.['maxlength']" text="Maximum length is 25!"></app-vmessage> <!-- Validators.maxLength(25) -->
+    <!-- <app-vmessage *ngIf="signupForm.get('userNick')?.errors?.['userNameTaken']" text="User nick already taken"></app-vmessage> <!-- Validators.userNameTaken -->
+    <!-- <small *ngIf="signupForm.get('userNick')?.valid" class="text-success">User available</small> -->
+  </div>
+
+   <!-- input email -->
+  <div class="form-group mb-2">
+    <input formControlName="userEmail" class="form-control" placeholder="E-mail do usuário" type="email">
+    <app-vmessage *ngIf="signupForm.get('userEmail')?.errors?.['required'] && signupForm.get('userEmail')?.['touched']" text="Email is Required!"></app-vmessage> <!-- Validators.required -->
+    <app-vmessage *ngIf="signupForm.get('userEmail')?.errors?.['email']" text="Invalid e-mail!"></app-vmessage> <!-- Validators.email -->
+  </div>
+
+   <!-- input password -->
+  <div class="form-group mb-2">
+    <input formControlName="userPassword" class="form-control" placeholder="Senha do usuário" type="password">
+    <app-vmessage *ngIf="signupForm.get('userPassword')?.errors?.['required'] && signupForm.get('userPassword')?.['touched']" text="Password is required!"></app-vmessage> <!-- Validators.required -->
+    <app-vmessage *ngIf="signupForm.get('userEmail')?.errors?.['minlength']" text="Minimum length is 6!"></app-vmessage> <!-- Validators.minLength(6) -->
+    <app-vmessage *ngIf="signupForm.get('userEmail')?.errors?.['maxlength']" text="Maximum length is 20!"></app-vmessage> <!-- Validators.maxLength(20) -->
+  </div>
+
+  <!-- button register -->
+  <div class="d-grid my-2">
+    <button [disabled]="signupForm.invalid || signupForm.pending" class="btn btn-primary " type="submit">Register</button>
+  </div>
+
+  <p>Já é usuário? <a [routerLink]="['']">Faça login.</a></p>
+
+</form>

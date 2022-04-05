@@ -1,0 +1,25 @@
+<!-- 1A- TEMPLATE HOME -->
+<!-- 1A- criando o template da pagina princical -->
+<div class="container font-monospace">
+  <div class="row py-3">
+    <!-- 1A- parte da esquerda temos umas informações sobre o projeto -->
+    <div class="col-sm-6 col-md-6 mb-3">
+      <div class="card text-center"> <!-- start card -->
+        <div class="card-header">
+          Projeto Angular
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Projeto Matheus Rocha</h5>
+          <p class="card-text">O desafio foi criar uma aplicação usando Angular e Bootstrap 5 para parte de front-end.
+            Para o back-end foi usado o json-server como uma api mock.</p>
+        </div>
+      </div> <!-- end card -->
+    </div>
+
+     <!-- 1A- parte da direita temos a area de login, depois vamos para home.module -->
+    <div class="col-sm-6 col-lg-6">
+      <!-- 2C- coloque o router-outlet, depois vá para home.routing.module.ts -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
